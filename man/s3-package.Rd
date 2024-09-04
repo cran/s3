@@ -11,8 +11,8 @@ Download files hosted on 'AWS S3' (Amazon Web Services Simple Storage Service; \
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/geomarker-io/s3}
-  \item Report bugs at \url{https://github.com/geomarker-io/s3/issues}
+  \item \url{https://github.com/brokamp-group/s3}
+  \item Report bugs at \url{https://github.com/brokamp-group/s3/issues}
 }
 
 }
@@ -22,6 +22,7 @@ Useful links:
 Authors:
 \itemize{
   \item Erika Rasnick \email{erika.rasnick@cchmc.org}
+  \item Robrecht Cannoodt
 }
 
 }

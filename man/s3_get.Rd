@@ -10,13 +10,15 @@ s3_get(
   quiet = FALSE,
   progress = FALSE,
   force = FALSE,
-  public = FALSE
+  public = FALSE,
+  data_dir = tools::R_user_dir("s3", "data")
 )
 }
 \arguments{
 \item{s3_uri}{URI for an S3 object}
 
-\item{region}{AWS region for bucket containing the file (defaults to "us-east-2", but only required for private files)}
+\item{region}{AWS region for bucket containing the file
+(defaults to "us-east-2", but only required for private files)}
 
 \item{quiet}{suppress messages?}
 
@@ -27,15 +29,21 @@ s3_get(
 \item{public}{defaults to FALSE; if TRUE, ignore any environment
 variables specifying AWS credentials and
 attempt to download the file as publicly available}
+
+\item{data_dir}{root directory for downloaded files (defaults to \code{tools::R_user_dir("s3", "data")})}
 }
 \value{
 a character string that is the file path to the downloaded file (invisibly)
 }
 \description{
-Files are downloaded to the R user data directory (i.e., \code{tools::R_user_dir("s3", "data")}) so they can be cached across all of an R user's sessions and projects. Specify an alternative download location by setting the \code{R_USER_DATA_DIR} environment variable (see \code{?tools::R_user_dir}).
+Files are downloaded to the R user data directory (i.e., \code{tools::R_user_dir("s3", "data")}) so they
+can be cached across all of an R user's sessions and projects.
+Specify an alternative download location by setting the \code{R_USER_DATA_DIR} environment variable
+(see \code{?tools::R_user_dir}) or by using the \code{data_dir} argument.
 }
 \examples{
 \donttest{
+Sys.setenv("R_USER_DATA_DIR" = tempdir())
 the_file <- s3_get(s3_uri = "s3://geomarker/testing_downloads/mtcars.rds")
 s3_get("s3://geomarker/testing_downloads/mtcars.rds") |>
     readRDS()
